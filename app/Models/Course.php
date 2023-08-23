@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
@@ -21,5 +22,12 @@ class Course extends Model
     public function modules()
     {
         return $this->hasMany(Module::class);
+    }
+
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => asset('/storage/categorycourses/' . $value),
+        );
     }
 }
