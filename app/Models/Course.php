@@ -12,4 +12,14 @@ class Course extends Model
     protected $fillable = [
         'categorycourse_id', 'title', 'description', 'thumbnail'
     ];
+
+    public function categorycourse()
+    {
+        return $this->belongsTo(CategoryCourse::class);
+    }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }

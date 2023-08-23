@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'course_id', 'title', 'description', 'module_type', 'file_type', 'video', 'document'
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

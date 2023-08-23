@@ -16,4 +16,9 @@ class Donatur extends Model
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }
