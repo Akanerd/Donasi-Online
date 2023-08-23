@@ -27,7 +27,7 @@ class Course extends Model
     protected function thumbnail(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => asset('/storage/categorycourses/' . $value),
+            get: fn ($value) => asset('/storage/courses/' . $value),
         );
     }
 }
